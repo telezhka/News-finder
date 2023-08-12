@@ -12,14 +12,16 @@ export class SearchComponent implements OnInit {
   baseURL: string = 'https://api.spaceflightnewsapi.net/v4/articles/';
   flag: any = '';
   ngOnInit() {
-    // this.flag = "start"
+    this.flag = ['The', 'most', 'successful', 'IT', 'companies', 'in', '2020']
   }
   onFormSubmit(searchResult: String) {
-    // searchResult.preventDefault(); // Відміна стандартної дії форми
+    const searchArr = searchResult.split(' ')
     console.log("Form submitted", searchResult);
-    console.log(`${this.baseURL}?title_contains_one=${searchResult}`);
+    console.log(searchArr);
     
-      this.http.get(`${this.baseURL}?title_contains_one=${searchResult}`).subscribe(
+    console.log(`${this.baseURL}?title_contains_one=${searchArr}&summary_contains_one=${searchArr}`);
+    
+      this.http.get(`${this.baseURL}?title_contains_one=${searchArr}&summary_contains_one=${searchArr}`).subscribe(
       (data) => {
         console.log('GET request successful', data);
         // Ваш код для обробки отриманих даних
