@@ -1,1 +1,8 @@
-<p>search works!</p>
+<header>
+  <div class="container">
+    <form action="" (ngSubmit)="onFormSubmit($event)">
+      <label for="search">Filter by keywords</label>
+      <input id="search" type="text" name="search" [(ngModel)]="flag" />
+    </form>
+  </div>
+</header>
