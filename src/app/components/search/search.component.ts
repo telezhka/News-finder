@@ -11,8 +11,8 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     // this.flag = "start"
   }
-  onFormSubmit(event: Event) {
-    event.preventDefault(); // Відміна стандартної дії форми
-    console.log("Form submitted", this.flag);
+  onFormSubmit(searchResult: String) {
+    // searchResult.preventDefault(); // Відміна стандартної дії форми
+    console.log("Form submitted", searchResult);
   }
 }

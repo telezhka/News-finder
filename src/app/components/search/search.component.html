@@ -1,8 +1,8 @@
 <header>
   <div class="container">
-    <form action="" (ngSubmit)="onFormSubmit($event)">
+    <form action="" (submit)="onFormSubmit(searchResult.value)">
       <label for="search">Filter by keywords</label>
-      <input id="search" type="text" name="search" [(ngModel)]="flag" />
+      <input id="search" type="text" name="search" #searchResult />
     </form>
   </div>
 </header>
