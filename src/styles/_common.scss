@@ -1,9 +1,14 @@
 .container {
-  min-width: 1440px;
+  width: 1440px;
   padding: 0 75px;
   margin: 0 auto;
 }
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
+}
+header,
+body,
+main {
+  width: 100%;
 }

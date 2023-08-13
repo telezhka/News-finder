@@ -41,9 +41,29 @@
                 : result.summary
             }}
           </p>
-          <button type="button" class="more-btn">Read more</button>
+          <button type="button" class="more-btn" (click)="openArt(result.id)">
+            Read more
+          </button>
         </div>
       </li>
     </ul>
+    <div class="art-cont" *ngIf="isOpen">
+      <article class="article">
+        <div class="art-thumb">
+          <img
+            src="{{ result?.image_url }}"
+            alt="{{ result?.title }}"
+            class="art-pic"
+          />
+        </div>
+        <div class="art-text">
+          <h2 class="art-heading">{{ result?.title }}</h2>
+          <p class="art-sum">{{ result?.summary }}</p>
+        </div>
+        <button type="button" (click)="closeArt()" class="art-btn">
+          Back to homepage
+        </button>
+      </article>
+    </div>
   </div>
 </main>
