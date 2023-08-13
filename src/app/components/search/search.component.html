@@ -16,10 +16,16 @@
           <svg>
             <use></use>
           </svg>
-          <p>{{ result.published_at }}</p>
+          <p>{{ formatDate(result.published_at) }}</p>
         </div>
         <h2>{{ result.title }}</h2>
-        <p>{{ result.summary }}</p>
+        <p>
+          {{
+            result.summary.length > 100
+              ? result.summary.slice(0, 100) + "..."
+              : result.summary
+          }}
+        </p>
         <button type="button">Read more</button>
       </li>
     </ul>
