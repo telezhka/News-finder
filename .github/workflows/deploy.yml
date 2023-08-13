@@ -27,4 +27,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: dist/index.html
+          folder: dist/angular-test
