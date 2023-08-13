@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchdataService } from 'src/app/services/searchdata.service';
 import { DatePipe } from '@angular/common';
 
@@ -27,7 +27,7 @@ export class SearchComponent{
   }
   formatDate(dateString: string): string {
   if (dateString === null) {
-    return '';
+    return ''; 
   }
 
   const date = new Date(dateString);

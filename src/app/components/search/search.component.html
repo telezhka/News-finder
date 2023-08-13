@@ -1,32 +1,48 @@
 <header>
-  <div class="container">
-    <form action="" (submit)="onFormSubmit(searchResult.value)">
-      <label for="search">Filter by keywords</label>
-      <input id="search" type="text" name="search" #searchResult />
+  <div class="container header">
+    <form action="" (submit)="onFormSubmit(searchResult.value)" class="form">
+      <label for="search" class="label">Filter by keywords</label>
+      <input
+        id="search"
+        type="text"
+        name="search"
+        #searchResult
+        class="input"
+      />
     </form>
   </div>
 </header>
 <main>
-  <div class="container">
-    <p *ngIf="searchResults.length > 0">Results: {{ searchResults.length }}</p>
-    <ul>
-      <li *ngFor="let result of searchResults">
-        <img src="{{ result.image_url }}" alt="{{ result.title }}" />
-        <div>
-          <svg>
-            <use></use>
-          </svg>
-          <p>{{ formatDate(result.published_at) }}</p>
+  <div class="container main">
+    <p *ngIf="searchResults.length > 0" class="results-counter">
+      Results: {{ searchResults.length }}
+    </p>
+    <ul class="list">
+      <li *ngFor="let result of searchResults" class="list-item">
+        <div class="thumb">
+          <img
+            src="{{ result.image_url }}"
+            alt="{{ result.title }}"
+            class="pic"
+          />
         </div>
-        <h2>{{ result.title }}</h2>
-        <p>
-          {{
-            result.summary.length > 100
-              ? result.summary.slice(0, 100) + "..."
-              : result.summary
-          }}
-        </p>
-        <button type="button">Read more</button>
+        <div class="list-item-text">
+          <div class="date-cover">
+            <!-- <svg class="date-svg" hidden>
+              <use hidden></use>
+            </svg> -->
+            <p class="date">{{ formatDate(result.published_at) }}</p>
+          </div>
+          <h2 class="title">{{ result.title }}</h2>
+          <p class="summary">
+            {{
+              result.summary.length > 100
+                ? result.summary.slice(0, 100) + "..."
+                : result.summary
+            }}
+          </p>
+          <button type="button" class="more-btn">Read more</button>
+        </div>
       </li>
     </ul>
   </div>

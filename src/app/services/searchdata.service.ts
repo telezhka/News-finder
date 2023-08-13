@@ -12,7 +12,7 @@ baseURL: string = 'https://api.spaceflightnewsapi.net/v4/articles/';
   constructor(private http: HttpClient) { }
 
   fetchData(searchArr: string[]): Observable<any[]> {
-    const searchQuery = `${this.baseURL}?title_contains_one=${searchArr.join(',')}&summary_contains_one=${searchArr.join(',')}`;
+    const searchQuery = `${this.baseURL}?title_contains_one=${searchArr.join(',')}&summary_contains_one=${searchArr.join(',')}&limit=50`;
     return this.http.get<any>(searchQuery).pipe(
       map(data => data.results)
     );
