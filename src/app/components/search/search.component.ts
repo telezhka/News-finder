@@ -19,10 +19,10 @@ export class SearchComponent{
   isOpen: boolean = false;
   markup: string = ''
   result: SearchResult | null = null;
-
+  searchArr: any[] = []
   onFormSubmit(searchResult: String) {
-    const searchArr = searchResult.split(' ')
-    this.dataService.fetchData(searchArr).subscribe(
+     this.searchArr = searchResult.split(' ')
+    this.dataService.fetchData(this.searchArr).subscribe(
       (results) => {
         this.searchResults = results;
         console.log(this.searchResults);
@@ -33,6 +33,26 @@ export class SearchComponent{
       }
     );
   }
+  formatHighlightedText(text: string, keywords: string[]): string {
+  const lowerCaseKeywords = keywords.map(keyword => keyword.toLowerCase());
+  const words = text.split(' ');
+
+  const formattedWords = words.map(word => {
+    const lowerCaseWord = word.toLowerCase();
+    if (lowerCaseKeywords.some(keyword => lowerCaseWord.includes(keyword))) {
+      return `<span class="red">${word}</span>`;
+    }
+    return word;
+  });
+
+  return formattedWords.join(' ');
+}
+truncateText(text: string, maxLength: number): string {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + '...';
+  }
+  return text;
+}
   formatDate(dateString: string): string {
   if (dateString === null) {
     return ''; 

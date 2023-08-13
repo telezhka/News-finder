@@ -26,21 +26,29 @@
             class="pic"
           />
         </div>
-        <div class="list-item-text">
-          <div class="date-cover">
-            <!-- <svg class="date-svg" hidden>
+        <div class="list-text-part">
+          <div class="list-item-text">
+            <div class="date-cover">
+              <!-- <svg class="date-svg" hidden>
               <use hidden></use>
             </svg> -->
-            <p class="date">{{ formatDate(result.published_at) }}</p>
+              <p class="date">{{ formatDate(result.published_at) }}</p>
+            </div>
+            <h2
+              class="title"
+              [innerHTML]="formatHighlightedText(result.title, searchArr)"
+            ></h2>
+            <p
+              class="summary"
+              [innerHTML]="
+                formatHighlightedText(
+                  truncateText(result.summary, 100),
+                  searchArr
+                )
+              "
+            ></p>
           </div>
-          <h2 class="title">{{ result.title }}</h2>
-          <p class="summary">
-            {{
-              result.summary.length > 100
-                ? result.summary.slice(0, 100) + "..."
-                : result.summary
-            }}
-          </p>
+
           <button type="button" class="more-btn" (click)="openArt(result.id)">
             Read more
           </button>
