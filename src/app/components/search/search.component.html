@@ -6,3 +6,14 @@
     </form>
   </div>
 </header>
+<main>
+  <div class="container">
+    <p>Results: {{ searchResults.length }}</p>
+    <ul>
+      <li *ngFor="let result of searchResults">
+        <img src="{{ result.image_url }}" alt="{{ result.title }}" />
+        <h2>{{ result.title }}</h2>
+      </li>
+    </ul>
+  </div>
+</main>

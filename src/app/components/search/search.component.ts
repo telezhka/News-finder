@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SearchdataService } from 'src/app/services/searchdata.service';
 
 
 @Component({
@@ -8,27 +9,28 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dataService: SearchdataService) { }
   baseURL: string = 'https://api.spaceflightnewsapi.net/v4/articles/';
-  flag: any = '';
+  searchResults: any[] = [];
+  // flag: any = '';
   ngOnInit() {
-    this.flag = ['The', 'most', 'successful', 'IT', 'companies', 'in', '2020']
+    // this.flag = ['The', 'most', 'successful', 'IT', 'companies', 'in', '2020']
   }
   onFormSubmit(searchResult: String) {
     const searchArr = searchResult.split(' ')
-    console.log("Form submitted", searchResult);
-    console.log(searchArr);
+    // console.log("Form submitted", searchResult);
+    // console.log(searchArr);
     
-    console.log(`${this.baseURL}?title_contains_one=${searchArr}&summary_contains_one=${searchArr}`);
+    // console.log(`${this.baseURL}?title_contains_one=${searchArr}&summary_contains_one=${searchArr}`);
     
-      this.http.get(`${this.baseURL}?title_contains_one=${searchArr}&summary_contains_one=${searchArr}`).subscribe(
-      (data) => {
-        console.log('GET request successful', data);
-        // Ваш код для обробки отриманих даних
+    this.dataService.fetchData(searchArr).subscribe(
+      (results) => {
+        this.searchResults = results;
+        console.log(this.searchResults);
+        
       },
       (error) => {
         console.log('Error occurred', error);
-        // Обробка помилки, якщо вона сталася
       }
     );
   }
