@@ -2,12 +2,16 @@
   <div class="container header">
     <form action="" (submit)="onFormSubmit(searchResult.value)" class="form">
       <label for="search" class="label">Filter by keywords</label>
+      <!-- <svg class="search-svg">
+        <use href="./images/icons.svg#icon-search"></use>
+      </svg> -->
       <input
         id="search"
         type="text"
         name="search"
         #searchResult
         class="input"
+        placeholder="Enter your search"
       />
     </form>
   </div>
@@ -29,9 +33,9 @@
         <div class="list-text-part">
           <div class="list-item-text">
             <div class="date-cover">
-              <!-- <svg class="date-svg" hidden>
-              <use hidden></use>
-            </svg> -->
+              <!-- <svg class="date-svg">
+                <use href="../../../images/icons.svg#icon-calendar"></use>
+              </svg> -->
               <p class="date">{{ formatDate(result.published_at) }}</p>
             </div>
             <h2
@@ -51,6 +55,9 @@
 
           <button type="button" class="more-btn" (click)="openArt(result.id)">
             Read more
+            <!-- <svg class="right-svg">
+              <use href="../../../images/icons.svg#icon-right"></use>
+            </svg> -->
           </button>
         </div>
       </li>
@@ -69,6 +76,9 @@
           <p class="art-sum">{{ result?.summary }}</p>
         </div>
         <button type="button" (click)="closeArt()" class="art-btn">
+          <!-- <svg class="left-svg">
+            <use href="../../../images/icons.svg#icon-left"></use>
+          </svg> -->
           Back to homepage
         </button>
       </article>

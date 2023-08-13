@@ -22,6 +22,7 @@
   border: 1px solid #eaeaea;
   background: #fff;
   box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.05);
+  padding-left: 15px;
 }
 .results-counter {
   color: #363636;
@@ -134,6 +135,9 @@
   border: 1px solid #eaeaea;
   background-color: #fff;
   box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .art-heading {
   color: #363636;
@@ -141,8 +145,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 50px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 .art-sum {
   color: #000;
@@ -163,4 +167,8 @@
 }
 .red {
   background-color: yellow;
+}
+.search-svg {
+  fill: #000;
+  stroke: #000;
 }
