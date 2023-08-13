@@ -8,11 +8,19 @@
 </header>
 <main>
   <div class="container">
-    <p>Results: {{ searchResults.length }}</p>
+    <p *ngIf="searchResults.length > 0">Results: {{ searchResults.length }}</p>
     <ul>
       <li *ngFor="let result of searchResults">
         <img src="{{ result.image_url }}" alt="{{ result.title }}" />
+        <div>
+          <svg>
+            <use></use>
+          </svg>
+          <p>{{ result.published_at }}</p>
+        </div>
         <h2>{{ result.title }}</h2>
+        <p>{{ result.summary }}</p>
+        <button type="button">Read more</button>
       </li>
     </ul>
   </div>
